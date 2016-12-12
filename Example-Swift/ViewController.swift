@@ -9,9 +9,10 @@
 import UIKit
 import ImageLoader
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, ImageRequestDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
+    weak var imageRequest: ImageRequest?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,10 +35,16 @@ class ViewController: UIViewController {
 
     func loadImage() {
         // https://upload.wikimedia.org/wikipedia/commons/4/4e/Pleiades_large.jpg
-        ImageLoader.default.load(image: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Pleiades_large.jpg") {
+        imageRequest = ImageLoader.default.request(image: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Pleiades_large.jpg", autoStart: false) {
             image, error in
             self.imageView.image = image
         }
+        imageRequest?.delegate = self
+        imageRequest?.start()
+    }
+
+    func progress(_ request: ImageRequest, totalBytesSent: Int64, totalBytesExpected: Int64) {
+        print("\(Double(totalBytesSent) / Double(totalBytesExpected) * 100.0)%")
     }
 }
 
