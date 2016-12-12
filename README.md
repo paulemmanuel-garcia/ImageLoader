@@ -27,7 +27,8 @@ ImageLoader.default.load("https://assets-cdn.github.com/images/modules/open_grap
 let imageRequest = ImageLoader.default.request("https://assets-cdn.github.com/images/modules/open_graph/github-mark.png") {
     image, error in
     self.imageView.image = image
-}```
+}
+```
 
 *You can `cancel`/`suspend`/`restart` the request*
 ```swift
