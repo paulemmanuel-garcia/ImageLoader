@@ -88,14 +88,14 @@ public class ImageRequest: NSObject, URLSessionDataDelegate {
     /// Delegate which will be notify during the progress
     public weak var delegate: ImageRequestDelegate?
 
+    /// Determine if the image should be cached
+    public var shouldCacheResult: Bool
+
     /// The raw data of the image
     fileprivate var imageData: Data?
     
     /// The possible error encountered by the download
     fileprivate var loadingError: NSError?
-
-    /// Determine if the image should be cached
-    public var shouldCacheResult: Bool
 
     /// The session which manages the download of the image
     private var session: URLSession?
