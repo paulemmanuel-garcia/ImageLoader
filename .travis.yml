@@ -1,0 +1,25 @@
+language: swift
+osx_image: xcode8
+env:
+  global:
+  - FRAMEWORK_NAME=ImageLoader
+before_install:
+- brew update
+- brew outdated carthage || brew upgrade carthage
+install:
+- gem install cocoapods
+- gem install xcpretty --no-rdoc --no-ri --no-document --quiet
+script:
+- set -o pipefail && xcodebuild -project ImageLoader.xcodeproj -scheme $FRAMEWORK_NAME -sdk iphonesimulator10.0 -configuration Release | xcpretty -c
+before_deploy:
+- carthage build --no-skip-current
+- carthage archive $FRAMEWORK_NAME
+deploy:
+  provider: releases
+  api_key:
+    secure: f/Bh3qGUV5zbfIqDTXTprzxwdhnwVR+sSNl1FFoeUuv26LNFSy53Rm7ub7lDq+rctv+E05z/ZgGuBW0sX+oIYdV/ze2JOsBL/PdHxbiEFZrwpl6aI6+YkfC7amaxiWMDw7HI0gHcc53xx8jYWDwt7/zwsDuTfihxlv097ksqOqIsbHWcOphgn/Y7oi5gBKJcs070hW+VrpSKRqLdMspv+BfiqF8tqrV2LL/XsCEddFgR7H6rYlV2SKJupXLwYurUC/lKity4EqWjjDZuuLRsNbZypCLQCUvH80bO+jH07TTLtRwTCEAA0wloZIX+v2mE/B6ikyo12PPb4CTu4N6ooKldg/pM9+U5Y5zuRVmAMns/k3H/Ap4MRFmRNHWRp1/2lX310HUHP79hx9LfN5/+ucLtimu6oLyME5vbt6l/7hWfG2BPQDGPuGel8fIuP51XqnyqS7UCMSidLo6MpvfAYLQU98oQL6cwE4Kc5rYk7Lli1T/FqqiS/D8YbwiqtrGdt+J7Ywp8jgv4/59aPUflRQUyguljMOq4ZBnVo+tN8ZqUMtbcdcPbPPn9PBEjqm+kw+zkgnkxeqDUA+Q4k1ljDhTqOaEC5ArBT8tLXlAnekEMO1FOz+sU4P0arijMwnWLgIHIQRTktYZQUJ/92X4vdGQe4rmGxuWXV7QoLvOJ1BM=
+  file: $FRAMEWORK_NAME.framework.zip
+  skip_cleanup: true
+  on:
+    repo: paulemmanuel-garcia/ImageLoader
+    tags: true
