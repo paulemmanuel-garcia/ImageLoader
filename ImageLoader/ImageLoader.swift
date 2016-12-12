@@ -75,6 +75,10 @@ public protocol ImageRequestDelegate: class {
     func progress(_ request: ImageRequest, totalBytesSent: Int64, totalBytesExpected: Int64)
 }
 
+extension ImageRequestDelegate {
+    func progress(_ request: ImageRequest, totalBytesSent: Int64, totalBytesExpected: Int64) {}
+}
+
 /// The ImageRequest is responsible to download an image.
 public class ImageRequest: NSObject, URLSessionDataDelegate {
     
@@ -83,6 +87,12 @@ public class ImageRequest: NSObject, URLSessionDataDelegate {
 
     /// Delegate which will be notify during the progress
     public weak var delegate: ImageRequestDelegate?
+
+    /// The raw data of the image
+    fileprivate var imageData: Data?
+    
+    /// The possible error encountered by the download
+    fileprivate var loadingError: NSError?
 
     /// Determine if the image should be cached
     public var shouldCacheResult: Bool
@@ -98,12 +108,6 @@ public class ImageRequest: NSObject, URLSessionDataDelegate {
 
     /// The number of bytes being received
     private var totalBytesSent: Int64
-
-    /// The raw data of the image
-    fileprivate var imageData: Data?
-    
-    /// The possible error encountered by the download
-    fileprivate var loadingError: NSError?
     
     /// Closure executed once the image is downloaded.
     private var completionHandler: ((ImageRequest) -> (Void))?

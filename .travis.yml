@@ -1,5 +1,5 @@
-language: swift
-osx_image: xcode8
+language: objective-c
+osx_image: xcode8.1
 env:
   global:
   - FRAMEWORK_NAME=ImageLoader
@@ -10,16 +10,13 @@ install:
 - gem install cocoapods
 - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
 script:
-- set -o pipefail && xcodebuild -project ImageLoader.xcodeproj -scheme $FRAMEWORK_NAME -sdk iphonesimulator10.0 -configuration Release | xcpretty -c
-before_deploy:
-- carthage build --no-skip-current
-- carthage archive $FRAMEWORK_NAME
+- set -o pipefail && xcodebuild -project ${FRAMEWORK_NAME}.xcodeproj -scheme $FRAMEWORK_NAME
+  -sdk iphonesimulator10.1 -configuration Release | xcpretty -c
 deploy:
   provider: releases
   api_key:
-    secure: f/Bh3qGUV5zbfIqDTXTprzxwdhnwVR+sSNl1FFoeUuv26LNFSy53Rm7ub7lDq+rctv+E05z/ZgGuBW0sX+oIYdV/ze2JOsBL/PdHxbiEFZrwpl6aI6+YkfC7amaxiWMDw7HI0gHcc53xx8jYWDwt7/zwsDuTfihxlv097ksqOqIsbHWcOphgn/Y7oi5gBKJcs070hW+VrpSKRqLdMspv+BfiqF8tqrV2LL/XsCEddFgR7H6rYlV2SKJupXLwYurUC/lKity4EqWjjDZuuLRsNbZypCLQCUvH80bO+jH07TTLtRwTCEAA0wloZIX+v2mE/B6ikyo12PPb4CTu4N6ooKldg/pM9+U5Y5zuRVmAMns/k3H/Ap4MRFmRNHWRp1/2lX310HUHP79hx9LfN5/+ucLtimu6oLyME5vbt6l/7hWfG2BPQDGPuGel8fIuP51XqnyqS7UCMSidLo6MpvfAYLQU98oQL6cwE4Kc5rYk7Lli1T/FqqiS/D8YbwiqtrGdt+J7Ywp8jgv4/59aPUflRQUyguljMOq4ZBnVo+tN8ZqUMtbcdcPbPPn9PBEjqm+kw+zkgnkxeqDUA+Q4k1ljDhTqOaEC5ArBT8tLXlAnekEMO1FOz+sU4P0arijMwnWLgIHIQRTktYZQUJ/92X4vdGQe4rmGxuWXV7QoLvOJ1BM=
-  file: $FRAMEWORK_NAME.framework.zip
-  skip_cleanup: true
+    secure: 0KI7EtLe3celdLi3NQ1GW4ZesPUPIftbAFGhsZXx18mgFPNt/bTVerGxQuRpfZMTwxWTgOr9aR+AHVsLgfcmnx+z37eMEPFrgEyr8QsjMOeILhviXNnv/BlWpC+EPbR15fNy6XHpP3PzB0vz/RQpcL2DEk8GNiYnc7VSK+STQ684zw5vvF8Aie1NoCOabJWINncscda5LOdiT7120Z7iIFcJsfDr5Ia/FzgVrQIwTHMtC4M31O3+MAKsSKq0eXKJMD3Yzhzonf0CeyWHYO6ARYEr4y2tGO6/eciRH+noP0auvf5hl4EkLfpf4FMn3BE5Rrcuq2b70qXZS9nggheKqjCVi/A64MdC2iFKsH4lodKAo2N1MTzyVcwpF8kWU4Fuc1I7jVW5r9JNUUrLIXT/jtFf3vFoNmoCgwGquH/v6N6HnQg31QN29GWEzPb4HwlGz1LVnvYVWMHCJpTgdPgnptpx5rcISh5wT41rAiTgXWrHP5CIuOHRozigrj294AgKyBMeDdO/VV7rLwcai/lNtfoEAfDMzUCNV5TbwDQjh5cquVkA/zzu1U/5hpYQZmGLEeZG4D8VwW2ltPh0umoPn6M0C8gbqDsrpmCd/7plgNzYKscTkc/h9KK0oIr79e8ILC61cniaWuS6Cmle/Pqlq30Gso5PZSLcnODYCI7wN+A=
+  file: "$FRAMEWORK_NAME.framework.zip"
   on:
     repo: paulemmanuel-garcia/ImageLoader
     tags: true
