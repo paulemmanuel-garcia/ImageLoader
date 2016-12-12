@@ -41,7 +41,7 @@ let imageRequest = ImageLoader.default.request("https://assets-cdn.github.com/im
 ```swift
 imageRequest.cancel()
 imageRequest.suspend()
-imageRequest.restart()
+imageRequest.start()
 ```
 
 *To monitor the progress of the request you can implement the `ImageRequestDelegate`*
