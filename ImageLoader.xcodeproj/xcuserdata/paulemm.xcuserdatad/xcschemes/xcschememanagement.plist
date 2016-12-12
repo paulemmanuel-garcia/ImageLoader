@@ -19,6 +19,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>ImageLoaderTests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -43,6 +48,11 @@
 			<true/>
 		</dict>
 		<key>8139CDB61DFF5C0700CCE576</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8139CDDF1DFF659000CCE576</key>
 		<dict>
 			<key>primary</key>
 			<true/>

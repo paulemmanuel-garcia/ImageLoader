@@ -23,12 +23,21 @@
 		8139CDC91DFF5C0800CCE576 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8139CDC71DFF5C0800CCE576 /* LaunchScreen.storyboard */; };
 		8139CDD81DFF625000CCE576 /* ImageLoader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 812FF66D1DFDA7F80095DDA5 /* ImageLoader.framework */; };
 		8139CDD91DFF625000CCE576 /* ImageLoader.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 812FF66D1DFDA7F80095DDA5 /* ImageLoader.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8139CDE31DFF659000CCE576 /* ImageLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8139CDE21DFF659000CCE576 /* ImageLoaderTests.swift */; };
+		8139CDE51DFF659000CCE576 /* ImageLoader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 812FF66D1DFDA7F80095DDA5 /* ImageLoader.framework */; };
 		81A935FD1DFDD541006E123F /* TableImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A935FC1DFDD541006E123F /* TableImageViewController.swift */; };
 		81A935FF1DFDD6BC006E123F /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A935FE1DFDD6BC006E123F /* ImageTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		8139CDDA1DFF625000CCE576 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 812FF6641DFDA7F80095DDA5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 812FF66C1DFDA7F80095DDA5;
+			remoteInfo = ImageLoader;
+		};
+		8139CDE61DFF659000CCE576 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 812FF6641DFDA7F80095DDA5 /* Project object */;
 			proxyType = 1;
@@ -73,6 +82,9 @@
 		8139CDC51DFF5C0800CCE576 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8139CDC81DFF5C0800CCE576 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8139CDCA1DFF5C0800CCE576 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8139CDE01DFF659000CCE576 /* ImageLoaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageLoaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8139CDE21DFF659000CCE576 /* ImageLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderTests.swift; sourceTree = "<group>"; };
+		8139CDE41DFF659000CCE576 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81A935FC1DFDD541006E123F /* TableImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableImageViewController.swift; sourceTree = "<group>"; };
 		81A935FE1DFDD6BC006E123F /* ImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,6 +113,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8139CDDD1DFF659000CCE576 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8139CDE51DFF659000CCE576 /* ImageLoader.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -110,6 +130,7 @@
 				812FF66F1DFDA7F80095DDA5 /* ImageLoader */,
 				812FF67F1DFDA8260095DDA5 /* Example-Swift */,
 				8139CDB81DFF5C0700CCE576 /* Example-objc */,
+				8139CDE11DFF659000CCE576 /* ImageLoaderTests */,
 				812FF66E1DFDA7F80095DDA5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -120,6 +141,7 @@
 				812FF66D1DFDA7F80095DDA5 /* ImageLoader.framework */,
 				812FF67E1DFDA8260095DDA5 /* Example-Swift.app */,
 				8139CDB71DFF5C0700CCE576 /* Example-objc.app */,
+				8139CDE01DFF659000CCE576 /* ImageLoaderTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -171,6 +193,15 @@
 				8139CDBA1DFF5C0700CCE576 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8139CDE11DFF659000CCE576 /* ImageLoaderTests */ = {
+			isa = PBXGroup;
+			children = (
+				8139CDE21DFF659000CCE576 /* ImageLoaderTests.swift */,
+				8139CDE41DFF659000CCE576 /* Info.plist */,
+			);
+			path = ImageLoaderTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,6 +272,24 @@
 			productReference = 8139CDB71DFF5C0700CCE576 /* Example-objc.app */;
 			productType = "com.apple.product-type.application";
 		};
+		8139CDDF1DFF659000CCE576 /* ImageLoaderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8139CDE81DFF659000CCE576 /* Build configuration list for PBXNativeTarget "ImageLoaderTests" */;
+			buildPhases = (
+				8139CDDC1DFF659000CCE576 /* Sources */,
+				8139CDDD1DFF659000CCE576 /* Frameworks */,
+				8139CDDE1DFF659000CCE576 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8139CDE71DFF659000CCE576 /* PBXTargetDependency */,
+			);
+			name = ImageLoaderTests;
+			productName = ImageLoaderTests;
+			productReference = 8139CDE01DFF659000CCE576 /* ImageLoaderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -267,6 +316,11 @@
 						DevelopmentTeam = 22RKU6KF4G;
 						ProvisioningStyle = Automatic;
 					};
+					8139CDDF1DFF659000CCE576 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 22RKU6KF4G;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 812FF6671DFDA7F80095DDA5 /* Build configuration list for PBXProject "ImageLoader" */;
@@ -285,6 +339,7 @@
 				812FF66C1DFDA7F80095DDA5 /* ImageLoader */,
 				812FF67D1DFDA8260095DDA5 /* Example-Swift */,
 				8139CDB61DFF5C0700CCE576 /* Example-objc */,
+				8139CDDF1DFF659000CCE576 /* ImageLoaderTests */,
 			);
 		};
 /* End PBXProject section */
@@ -314,6 +369,13 @@
 				8139CDC91DFF5C0800CCE576 /* LaunchScreen.storyboard in Resources */,
 				8139CDC61DFF5C0800CCE576 /* Assets.xcassets in Resources */,
 				8139CDC41DFF5C0800CCE576 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8139CDDE1DFF659000CCE576 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +411,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8139CDDC1DFF659000CCE576 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8139CDE31DFF659000CCE576 /* ImageLoaderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -356,6 +426,11 @@
 			isa = PBXTargetDependency;
 			target = 812FF66C1DFDA7F80095DDA5 /* ImageLoader */;
 			targetProxy = 8139CDDA1DFF625000CCE576 /* PBXContainerItemProxy */;
+		};
+		8139CDE71DFF659000CCE576 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 812FF66C1DFDA7F80095DDA5 /* ImageLoader */;
+			targetProxy = 8139CDE61DFF659000CCE576 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -595,6 +670,30 @@
 			};
 			name = Release;
 		};
+		8139CDE91DFF659000CCE576 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 22RKU6KF4G;
+				INFOPLIST_FILE = ImageLoaderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rstudio.ImageLoaderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		8139CDEA1DFF659000CCE576 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 22RKU6KF4G;
+				INFOPLIST_FILE = ImageLoaderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rstudio.ImageLoaderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -630,6 +729,14 @@
 			buildConfigurations = (
 				8139CDCC1DFF5C0800CCE576 /* Debug */,
 				8139CDCD1DFF5C0800CCE576 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		8139CDE81DFF659000CCE576 /* Build configuration list for PBXNativeTarget "ImageLoaderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8139CDE91DFF659000CCE576 /* Debug */,
+				8139CDEA1DFF659000CCE576 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

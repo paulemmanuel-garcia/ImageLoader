@@ -53,7 +53,7 @@ func progress(_ request: ImageRequest, totalBytesSent: Int64, totalBytesExpected
 
 *If you do not want to start right away the loading of the image you can use the autoStart parameter*
 ```swift
-let imageRequest = ImageLoader.default.request("https://assets-cdn.github.com/images/modules/open_graph/github-mark.png", autoStart = false) {
+let imageRequest = ImageLoader.default.request("https://assets-cdn.github.com/images/modules/open_graph/github-mark.png", autoStart: false) {
     image, error in
     self.imageView.image = image
 }
