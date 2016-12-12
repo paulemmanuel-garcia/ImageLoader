@@ -12,16 +12,18 @@ import UIKit
 public typealias DownloadCompletion = (UIImage?, NSError?) -> (Void)
 
 /// ImageLoader
+@objc(RVSImageLoader)
 public class ImageLoader: NSObject, URLSessionTaskDelegate {
 
     /// The default ImageLoader
-    public static let `default` = ImageLoader()
+    @objc(loader) public static let `default` = ImageLoader()
 
     /// Start the loading of an image.
     ///
     /// - Parameters:
     ///   - fromStr: String representation of the URL of the image
     ///   - completion: block called when the image's loading  is completed
+    @objc(loadImageFrom:withCompletion:)
     public func load(image fromStr: String, completion: @escaping DownloadCompletion) {
         let _ = request(image: fromStr, completion: completion)
     }
@@ -34,6 +36,7 @@ public class ImageLoader: NSObject, URLSessionTaskDelegate {
     ///   - autoStart: the request should automatically start
     ///   - completion: block called when the image's loading  is completed
     /// - Returns: The ImageRequest, class responsible to load the image.
+    @objc(requestImageFrom:autoStart:withCompletion:)
     public func request(image fromStr: String, autoStart: Bool = true, completion: @escaping DownloadCompletion) -> ImageRequest? {
 
         guard let imageURL = URL(string: fromStr) else {
@@ -64,32 +67,29 @@ public class ImageLoader: NSObject, URLSessionTaskDelegate {
 }
 
 /// ImageRequestDelegate to be notify about events during the loading of the image
-public protocol ImageRequestDelegate: class {
+@objc(RVSImageRequestDelegate) public protocol ImageRequestDelegate: class {
     
     /// Indicate the progress of the loading of the image
     ///
     /// - Parameters:
     ///   - request: the ImageRequest
     ///   - totalBytesSent: total bytes sent so far
-    ///   - totalBytesExpectedToSend: total bytes expected, total size of the image
-    func progress(_ request: ImageRequest, totalBytesSent: Int64, totalBytesExpected: Int64)
-}
-
-extension ImageRequestDelegate {
-    func progress(_ request: ImageRequest, totalBytesSent: Int64, totalBytesExpected: Int64) {}
+    ///   - totalBytesExpected: total bytes expected, total size of the image
+    @objc optional func progress(_ request: ImageRequest, totalBytesSent: Int64, totalBytesExpected: Int64)
 }
 
 /// The ImageRequest is responsible to download an image.
+@objc(RVSImageRequest)
 public class ImageRequest: NSObject, URLSessionDataDelegate {
     
     /// The image url that the request handles
-    public var imageURL: URL
+    @objc public var imageURL: URL
 
     /// Delegate which will be notify during the progress
-    public weak var delegate: ImageRequestDelegate?
+    @objc public weak var delegate: ImageRequestDelegate?
 
     /// Determine if the image should be cached
-    public var shouldCacheResult: Bool
+    @objc public var shouldCacheResult: Bool
 
     /// The raw data of the image
     fileprivate var imageData: Data?
@@ -118,6 +118,7 @@ public class ImageRequest: NSObject, URLSessionDataDelegate {
     /// - Parameters:
     ///   - url: The url to load the image from
     ///   - completion: closure which will be executed once the image is downloaded
+    @objc(initWithURL:completion:)
     init(with url: URL, completion: @escaping (ImageRequest) -> (Void)) {
         imageURL = url
         totalBytesExpected = 0
@@ -130,18 +131,18 @@ public class ImageRequest: NSObject, URLSessionDataDelegate {
     }
 
     /// Cancel the loading of an image
-    public func cancel() {
+    @objc public func cancel() {
         task?.cancel()
         session?.invalidateAndCancel()
     }
 
     /// Suspend the loading of an image
-    public func suspend() {
+    @objc public func suspend() {
         task?.suspend()
     }
 
     /// Start the loading of an image
-    public func start() {
+    @objc public func start() {
         task?.resume()
     }
 
@@ -156,7 +157,7 @@ public class ImageRequest: NSObject, URLSessionDataDelegate {
         totalBytesSent += data.count
         imageData?.append(data)
 
-        delegate?.progress(self, totalBytesSent: totalBytesSent, totalBytesExpected: totalBytesExpected)
+        delegate?.progress?(self, totalBytesSent: totalBytesSent, totalBytesExpected: totalBytesExpected)
 
         // The loading of the image is now completed
         if totalBytesSent == totalBytesExpected {

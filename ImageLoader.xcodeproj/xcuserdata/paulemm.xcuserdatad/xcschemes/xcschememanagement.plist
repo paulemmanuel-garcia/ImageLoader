@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>Example-objc.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>ImageLoader.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
@@ -23,6 +28,21 @@
 			<true/>
 		</dict>
 		<key>812FF67D1DFDA8260095DDA5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8139CD841DFF5B5A00CCE576</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8139CD9B1DFF5BDD00CCE576</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8139CDB61DFF5C0700CCE576</key>
 		<dict>
 			<key>primary</key>
 			<true/>
