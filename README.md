@@ -1,6 +1,13 @@
 # ImageLoader
 Simple image loader in swift
 
+[![Build Status](https://travis-ci.org/paulemmanuel-garcia/ImageLoader.svg?branch=master)](https://travis-ci.org/paulemmanuel-garcia/ImageLoader)
+[![CocoaPods](https://img.shields.io/cocoapods/v/RVSImageLoader.svg)](https://cocoapods.org/pods/RVSImageLoader)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![CocoaPods](https://img.shields.io/cocoapods/l/RVSImageLoader.svg)](https://github.com/paulemmanuel-garcia/ImageLoader)
+[![CocoaPods](https://img.shields.io/cocoapods/p/RVSImageLoader.svg)](https://github.com/paulemmanuel-garcia/ImageLoader)
+
+
 ## Usage
 
 #### Import the library
