@@ -91,7 +91,7 @@ public class ImageRequest: NSObject, URLSessionDataDelegate {
 
     /// Determine if the image should be cached
     @objc public var shouldCacheResult: Bool
-
+    
     /// The raw data of the image
     fileprivate var imageData: Data?
     

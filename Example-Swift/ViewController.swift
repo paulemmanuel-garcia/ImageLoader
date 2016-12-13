@@ -14,14 +14,23 @@ class ViewController: UIViewController, ImageRequestDelegate {
     @IBOutlet weak var imageView: UIImageView!
     weak var imageRequest: ImageRequest?
     
+    var programaticImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        loadImage()
+//        loadImage()
+        
+        programaticImageView = UIImageView(imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Pleiades_large.jpg", autoStart: false)
+        programaticImageView.frame = CGRect(x: 20.0, y: 20.0, width: 100.0, height: 100.0)
+        programaticImageView.imageRequest?.delegate = self
+        
+        view.addSubview(programaticImageView)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         imageView.image = nil
+        programaticImageView = nil
     }
     
     override func didReceiveMemoryWarning() {
@@ -34,13 +43,15 @@ class ViewController: UIViewController, ImageRequestDelegate {
     }
 
     func loadImage() {
+        programaticImageView.imageRequest?.start()
         // https://upload.wikimedia.org/wikipedia/commons/4/4e/Pleiades_large.jpg
-        imageRequest = ImageLoader.default.request(image: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Pleiades_large.jpg", autoStart: false) {
-            image, error in
-            self.imageView.image = image
-        }
-        imageRequest?.delegate = self
-        imageRequest?.start()
+        
+//        imageRequest = ImageLoader.default.request(image: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Pleiades_large.jpg", autoStart: false) {
+//            image, error in
+//            self.imageView.image = image
+//        }
+//        imageRequest?.delegate = self
+//        imageRequest?.start()
     }
 
     func progress(_ request: ImageRequest, totalBytesSent: Int64, totalBytesExpected: Int64) {
