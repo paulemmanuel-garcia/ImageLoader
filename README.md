@@ -12,7 +12,7 @@ Simple image loader in swift
 
 #### Import the library
 
-To use it on your project you need to import the framework.
+To use it in your project, import the framework.
 ```swift
 // Swift
 import ImageLoader
@@ -20,7 +20,7 @@ import ImageLoader
 
 #### General Use cases
 
-- Simple load of an image:
+- Simply load an image:
 *This will automatically start the loading of the image.*
 ```swift
 ImageLoader.default.load("https://assets-cdn.github.com/images/modules/open_graph/github-mark.png") {
@@ -44,7 +44,7 @@ imageRequest.suspend()
 imageRequest.start()
 ```
 
-*To monitor the progress of the request you can implement the `ImageRequestDelegate`*
+*To monitor the request's progress, implement the `ImageRequestDelegate`*
 ```swift
 func progress(_ request: ImageRequest, totalBytesSent: Int64, totalBytesExpected: Int64) {
     print("\(Double(totalBytesSent) / Double(totalBytesExpected) * 100.0)%")

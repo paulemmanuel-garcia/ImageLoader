@@ -67,7 +67,8 @@ public class ImageLoader: NSObject, URLSessionTaskDelegate {
 }
 
 /// ImageRequestDelegate to be notify about events during the loading of the image
-@objc(RVSImageRequestDelegate) public protocol ImageRequestDelegate: class {
+@objc(RVSImageRequestDelegate)
+public protocol ImageRequestDelegate: class {
     
     /// Indicate the progress of the loading of the image
     ///
