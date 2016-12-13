@@ -20,23 +20,49 @@ class ImageLoaderTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+
+    func testRequestCreationFailure() {
+        let request = ImageLoader.default.request(image: "") {
+            image, error in
+            print("Shouldn't be here")
+        }
+        XCTAssertNil(request)
     }
-    
-    func testBadURL() {
-        ImageLoader.default.load(image: "https://toto?image") {
-            image, error
+
+    func testRequestCreation() {
+        let request = ImageLoader.default.request(image: "https://placehold.it/50", autoStart: false) {
+            image, error in
+        }
+        XCTAssert(request != nil)
+    }
+
+    func testImageLoading() {
+        let loadExpectation = expectation(description: "Should load image")
+
+        let request = ImageLoader.default.request(image: "https://placehold.it/50") {
+            image, error in
+            if let image = image {
+                loadExpectation.fulfill()
+            }
+        }
+        
+        waitForExpectations(timeout: 5) {
+            error in
         }
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testImageLoadingFailure() {
+        let loadExpectation = expectation(description: "Should load image")
+        
+        let request = ImageLoader.default.request(image: "https://toto/image.png") {
+            image, error in
+            if let error = error {
+                loadExpectation.fulfill()
+            }
+        }
+        
+        waitForExpectations(timeout: 5) {
+            error in
         }
     }
-    
 }
