@@ -11,29 +11,20 @@ import ImageLoader
 
 class ImageTableViewCell: UITableViewCell {
 
-    private var shouldCacheImage: Bool = false
-    
     public var title: String? {
         set {
             titleLabel.text = newValue
-//            if let row = Int(newValue!), row % 2 == 0 {
-//                shouldCacheImage = true
-//            }
         }
         get {
             return titleLabel.text
         }
     }
-    
+
     private var _imageURL: String?
     public var imageURL: String? {
         set {
             _imageURL = newValue
-            imageRequest = ImageLoader.default.request(image: newValue!) {
-                [weak self] image, error in
-                self?.pictureView.image = image
-            }
-            imageRequest?.shouldCacheResult = shouldCacheImage
+            pictureView.load(with: newValue!)
         }
         get {
             return _imageURL
@@ -42,14 +33,11 @@ class ImageTableViewCell: UITableViewCell {
     
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var pictureView: UIImageView!
-    private weak var imageRequest: ImageRequest?
     
     override func prepareForReuse() {
-        imageRequest?.cancel()
         pictureView.image = nil
-        shouldCacheImage = false
     }
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

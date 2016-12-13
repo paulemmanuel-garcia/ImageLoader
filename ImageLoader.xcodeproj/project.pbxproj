@@ -25,6 +25,7 @@
 		8139CDD91DFF625000CCE576 /* ImageLoader.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 812FF66D1DFDA7F80095DDA5 /* ImageLoader.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8139CDE31DFF659000CCE576 /* ImageLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8139CDE21DFF659000CCE576 /* ImageLoaderTests.swift */; };
 		8139CDE51DFF659000CCE576 /* ImageLoader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 812FF66D1DFDA7F80095DDA5 /* ImageLoader.framework */; };
+		8139CDEC1E002A1C00CCE576 /* UIImage+ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8139CDEB1E002A1C00CCE576 /* UIImage+ImageLoader.swift */; };
 		81A935FD1DFDD541006E123F /* TableImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A935FC1DFDD541006E123F /* TableImageViewController.swift */; };
 		81A935FF1DFDD6BC006E123F /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A935FE1DFDD6BC006E123F /* ImageTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -85,6 +86,7 @@
 		8139CDE01DFF659000CCE576 /* ImageLoaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageLoaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8139CDE21DFF659000CCE576 /* ImageLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderTests.swift; sourceTree = "<group>"; };
 		8139CDE41DFF659000CCE576 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8139CDEB1E002A1C00CCE576 /* UIImage+ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ImageLoader.swift"; sourceTree = "<group>"; };
 		81A935FC1DFDD541006E123F /* TableImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableImageViewController.swift; sourceTree = "<group>"; };
 		81A935FE1DFDD6BC006E123F /* ImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -152,6 +154,7 @@
 				812FF6701DFDA7F80095DDA5 /* ImageLoader.h */,
 				812FF6711DFDA7F80095DDA5 /* Info.plist */,
 				812FF6781DFDA80B0095DDA5 /* ImageLoader.swift */,
+				8139CDEB1E002A1C00CCE576 /* UIImage+ImageLoader.swift */,
 			);
 			path = ImageLoader;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8139CDEC1E002A1C00CCE576 /* UIImage+ImageLoader.swift in Sources */,
 				812FF6791DFDA80B0095DDA5 /* ImageLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

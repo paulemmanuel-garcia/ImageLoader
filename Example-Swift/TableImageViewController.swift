@@ -34,7 +34,7 @@ class TableImageViewController: UIViewController, UITableViewDelegate, UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! ImageTableViewCell
         
         cell.title = String(indexPath.row)
-        cell.imageURL = "https://dummyimage.com/50/2781CA/ffffff.png&text=\(indexPath.row)"
+        cell.imageURL = "https://placehold.it/50x50?text=\(indexPath.row)"
 
         return cell
     }
