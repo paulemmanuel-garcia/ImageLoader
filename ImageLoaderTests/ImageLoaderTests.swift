@@ -8,6 +8,7 @@
 
 import XCTest
 import ImageLoader
+import Foundation
 
 class ImageLoaderTests: XCTestCase {
     
@@ -52,7 +53,7 @@ class ImageLoaderTests: XCTestCase {
     }
     
     func testImageLoadingFailure() {
-        let loadExpectation = expectation(description: "Should load image")
+        let loadExpectation = expectation(description: "Should fail loading image")
         
         let request = ImageLoader.default.request(image: "https://toto/image.png") {
             image, error in
@@ -60,6 +61,22 @@ class ImageLoaderTests: XCTestCase {
                 loadExpectation.fulfill()
             }
         }
+        
+        waitForExpectations(timeout: 5) {
+            error in
+        }
+    }
+    
+    func testImageLoadingCancellation() {
+        let loadExpectation = expectation(description: "Should get an error from image loading cancellation")
+        
+        let request = ImageLoader.default.request(image: "https://placehold.it/1500") {
+            image, error in
+            if let error = error, error.code == -999, error.userInfo[NSLocalizedDescriptionKey] as! String == "cancelled" {
+                loadExpectation.fulfill()
+            }
+        }
+        request?.cancel()
         
         waitForExpectations(timeout: 5) {
             error in
