@@ -17,7 +17,7 @@ public extension UIImageView {
     }
 
     /// The image request to load image asynchronously
-    private var imageRequest: ImageRequest? {
+    public var imageRequest: ImageRequest? {
         get {
             return objc_getAssociatedObject(self, &AssociatedKeys.ImageRequestKey) as? ImageRequest
         }
@@ -37,7 +37,7 @@ public extension UIImageView {
 
         return imageView
     }
-
+    
     /// Load the image of the UIImageView asynchronously
     /// will automaticaly cancel the previous request if there was one.
     ///

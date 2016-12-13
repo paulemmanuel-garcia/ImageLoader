@@ -28,6 +28,12 @@ ImageLoader.default.load("https://assets-cdn.github.com/images/modules/open_grap
     self.imageView.image = image
 }
 ```
+Or use the UIImageView extension:
+```swift
+let imageView = UIImageView.imageView(with: "https://assets-cdn.github.com/images/modules/open_graph/github-mark.png")
+// or
+existinImageView.load(with: "https://assets-cdn.github.com/images/modules/open_graph/github-mark.png")
+```
 
 - Handle image request:
 ```swift
